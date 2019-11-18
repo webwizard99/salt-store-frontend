@@ -1,11 +1,13 @@
 import React from 'react';
 import './Home.css';
 
+import HomeBanner from '../../Components/HomeBanner';
+
 class Home extends React.Component {
   render() {
     return (
       <div className="Home">
-        Home
+        <HomeBanner />
       </div>
     )
   }

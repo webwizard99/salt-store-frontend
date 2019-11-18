@@ -1,11 +1,13 @@
 import React from 'react';
 import './About.css';
 
+import AboutBanner from '../../Components/AboutBanner';
+
 class About extends React.Component {
   render() {
     return (
       <div className="About">
-        About
+        <AboutBanner />
       </div>
     );
   }

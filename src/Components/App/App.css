@@ -1,0 +1,53 @@
+/* universal styling */
+
+.container {
+  width: 967px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-float-left {
+  float: left;
+}
+
+.img-float-right {
+  float: right;
+}
+
+.header {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 3.2em;
+  font-weight: 800;
+}
+
+.story-para {
+  font-family: 'Quicksand', sans-serif;
+  margin-top: 2.4rem;
+  line-height: 2rem;
+}
+
+.reader {
+  position: absolute;
+  right: 9999px;
+}
+
+/* universal styles - tablet */
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+  }
+  
+  .img-float-right {
+    float: none;
+  }
+}
+
+/* hero styles */
+
+.hero {
+  
+  overflow: hidden;
+  height: 38rem;
+  width: 100%;
+  box-shadow: 1px 1px 6px rgba(10, 5, 5, .6);
+}
