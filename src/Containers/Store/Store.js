@@ -1,7 +1,7 @@
 import React from 'react';
 import './Store.css';
 
-import StoreBanner from '../../Components/StoreBanner';
+import StoreBanner from '../../Components/StoreBanner/StoreBanner';
 
 class Store extends React.Component {
   render() {

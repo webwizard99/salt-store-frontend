@@ -6,10 +6,16 @@ import Navbar from '../Navbar/Navbar';
 class HomeBanner extends React.Component {
   render() {
     return (
-      <div className="HomeBanner hero">
+      <section className="HomeBanner hero">
+        <div className="hero-img-home banner-img">
+          <p className="reader">Colored salt in bowls with flowers</p>
+          <Navbar />
+          <div className="store-button">
+              Start Now
+          </div>
+        </div>
         
-        <Navbar />
-      </div>
+      </section>
     )
   }
 }
