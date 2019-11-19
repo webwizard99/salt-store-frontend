@@ -2,7 +2,7 @@ import React from 'react';
 import './reset.css';
 import './App.css';
 
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Home from '../../Containers/Home/Home';
 import Store from '../../Containers/Store/Store';
 import About from '../../Containers/About/About';
