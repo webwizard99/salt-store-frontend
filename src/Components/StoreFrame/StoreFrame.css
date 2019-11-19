@@ -1,0 +1,19 @@
+/* store item-view styling */
+
+.StoreFrame {
+  width: 967px;
+  height: auto;
+  margin: auto;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+ }
+
+/* store frame - tablet styling  */
+@media only screen and ( max-width: 1024px ) {
+  .StoreFrame {
+    width: 80%;
+  }
+}

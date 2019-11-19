@@ -1,0 +1,50 @@
+.StoreItem {
+  width: 24%;
+  height: 400px;
+  margin-bottom: 3rem;
+}
+
+.StoreItem:hover {
+  box-shadow: 0px 0px 4px rgba(10, 15, 15, .6);
+}
+
+.item-pic {
+  height: 300px;
+  width: 100%;
+  /* background-image: url('../media/joanna-kosinska-Prfs32wh-o4-unsplash.jpg'); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.item-title, .item-description, .item-price {
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+}
+
+.item-title, .item-price {
+  margin-top: .6rem;
+  color: rgb(10, 5, 5);
+}
+
+.item-description {
+  color: rgb(120, 125, 130);
+}
+
+.item-price {
+  font-weight: 800;
+}
+
+
+/* store-item - tablet styles  */
+@media only screen and ( max-width: 1024px ) {
+  .StoreItem {
+    width: 44%;
+  }
+}
+
+@media only screen and (max-width: 510px ) {
+  .StoreItem {
+    width: 96%;
+  }
+}
