@@ -6,6 +6,7 @@ import { SET_ITEMS } from '../../actions/types';
 import storeitems from '../../Utilties/storeitems';
 
 import StoreItem from '../StoreItem/StoreItem';
+import PageNumbers from '../PageNumbers/PageNumbers';
 
 class StoreFrame extends React.Component {
   // **--**--**--**--**-
@@ -21,11 +22,12 @@ class StoreFrame extends React.Component {
     }
 
     this.getItemsForRender = this.getItemsForRender.bind(this);
+    this.getPagination = this.getPagination.bind(this);
   }
 
   componentDidMount() {
     storeitems.initTestItems(80);
-    const items = storeitems.getItems(this.state.page, this.state.number);
+    const items = storeitems.getItems(this.props.page, this.props.count);
     this.props.setItems(items);
   }
 
@@ -41,11 +43,30 @@ class StoreFrame extends React.Component {
       })
     }
   }
+
+  getPagination() {
+    if (this.props.items == null) {
+      return '';
+    } else {
+      const total = storeitems.getItemsLength();
+      const maxPages = Math.ceil(total / this.props.count);
+      let renderPages = [];
+      if (maxPages <= 8) {
+        for (let i = 1; i <= maxPages; i++) {
+          renderPages.push(i);
+        }
+      }
+
+      return (<PageNumbers pages={renderPages} />);
+    }
+  }
   
   render() {
     return (
       <main className="StoreFrame">
+        {this.getPagination()}
         {this.getItemsForRender()}
+        {this.getPagination()}
       </main>
     )
   }
@@ -53,7 +74,9 @@ class StoreFrame extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    items: state.items.items
+    items: state.items.items,
+    page: state.page.page,
+    count: state.page.count
   }
 }
 

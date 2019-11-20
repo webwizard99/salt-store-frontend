@@ -1,0 +1,30 @@
+/* pagination styles */
+.page-number-container {
+  margin: none none 1.5rem 2rem;
+  display: flex;
+  width: 100%;
+}
+
+.page-number-container ul {
+  list-style: none;
+  display: flex;
+}
+
+.page-number-container a {
+  color: blue;
+  cursor: pointer;
+  margin-right: .5rem;
+  text-decoration: none;
+}
+
+.page-num {
+  font-size: 1.2rem;
+}
+
+.current-page-num {
+  font-weight: 700;
+}
+
+.number-selector {
+  width: 3rem;
+}
