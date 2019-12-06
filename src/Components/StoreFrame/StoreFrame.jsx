@@ -4,6 +4,7 @@ import './StoreFrame.css';
 import { connect } from 'react-redux';
 import { SET_ITEMS } from '../../actions/types';
 import storeitems from '../../Utilties/storeitems';
+import endpoints from '../../Utilties/endpoints';
 
 import StoreItem from '../StoreItem/StoreItem';
 import PageNumbers from '../PageNumbers/PageNumbers';
@@ -23,10 +24,24 @@ class StoreFrame extends React.Component {
 
     this.getItemsForRender = this.getItemsForRender.bind(this);
     this.getPagination = this.getPagination.bind(this);
+    this.testHello = this.testHello.bind(this);
+  }
+
+  async getStoreItems(url) {
+    const res = await fetch(url);
+  }
+
+  async testHello(url) {
+    const res = await fetch(url);
+    console.log(res);
   }
 
   componentDidMount() {
     storeitems.initTestItems(80);
+    const hiEndpoint = `${endpoints.hello}`;
+    this.testHello(hiEndpoint);
+    const endpoint = `${endpoints.storeItems}/1/20`;
+    const testItems = this.getStoreItems(endpoint);
     const items = storeitems.getItems(this.props.page, this.props.count);
     this.props.setItems(items);
   }
