@@ -29,6 +29,7 @@ class StoreFrame extends React.Component {
 
   async getStoreItems(url) {
     const res = await fetch(url);
+    console.log(res);
   }
 
   async testHello(url) {
