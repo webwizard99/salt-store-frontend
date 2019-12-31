@@ -28,8 +28,8 @@ class StoreFrame extends React.Component {
   }
 
   async getStoreItems(url) {
-    const res = await fetch(url);
-    console.log(res);
+    const res = await (await fetch(url)).json();
+    this.props.setItems(res);
   }
 
   async testHello(url) {
@@ -41,10 +41,10 @@ class StoreFrame extends React.Component {
     storeitems.initTestItems(80);
     const hiEndpoint = `${endpoints.hello}`;
     this.testHello(hiEndpoint);
-    const endpoint = `${endpoints.storeItems}/1/20`;
-    const testItems = this.getStoreItems(endpoint);
-    const items = storeitems.getItems(this.props.page, this.props.count);
-    this.props.setItems(items);
+    const endpoint = `${endpoints.products}`;
+    this.getStoreItems(endpoint);
+    // const items = storeitems.getItems(this.props.page, this.props.count);
+    // this.props.setItems(testItems);
   }
 
   getItemsForRender() {
