@@ -12,7 +12,7 @@ class PageNumbers extends React.Component {
       if (num == this.props.page) {
         return (<li key={numIndex}><a className="page-num current-page-num" data-page={num}>{num}</a></li>)
       } else {
-        return (<li key={numIndex} ><a className="page-num" data-page={num}>{num}</a></li>)
+        return (<li key={numIndex}><a className="page-num" data-page={num}>{num}</a></li>)
       }
     });
   }
