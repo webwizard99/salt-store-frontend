@@ -1,4 +1,5 @@
 const cookie = (function(){
+  const csrf_name = '_csrf';
   return {
     getCookie: function(cname) {
       var name = cname + "=";
@@ -14,8 +15,12 @@ const cookie = (function(){
         }
       }
       return "";
+    },
+    getCSRFCookieName: function() {
+      return csrf_name;
     }
   }
+
 }());
 
 export default cookie;

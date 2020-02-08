@@ -17,7 +17,7 @@ class App extends React.Component {
   // **-**- Lifecycle methods **-
   // **-**-**-**-   -**-**-**-**-
   componentDidMount() {
-    const csrf = cookie.getCookie('csrfToken');
+    const csrf = cookie.getCookie(cookie.getCSRFCookieName());
     if (csrf !=="") {
       console.log('csrf cookie found!');
       this.props.setCSRFCookie(csrf);
@@ -31,10 +31,10 @@ class App extends React.Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/store" component={Store} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/profile" component={Profile} />
+            <Route exact path="/frontend" component={Home} />
+            <Route exact path="/frontend/store" component={Store} />
+            <Route exact path="/frontend/about" component={About} />
+            <Route exact path="/frontend/profile" component={Profile} />
           </div>
         </BrowserRouter>
 
