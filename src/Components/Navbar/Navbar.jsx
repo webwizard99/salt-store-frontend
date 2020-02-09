@@ -7,15 +7,15 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav className="Navbar">
-        <Link to="/" className="logo-group">
+        <Link to="/frontend" className="logo-group">
           <div className="logo-group">
             <span className="logo">&</span>
             <span className="tagline">find your salt</span>
           </div>
         </Link>
         <ul className="nav-options">
-          <li><Link to="/store"><span>Store</span></Link></li>
-          <li><Link to="/about"><span>About</span></Link></li>
+          <li><Link to="/frontend/store"><span>Store</span></Link></li>
+          <li><Link to="/frontend/about"><span>About</span></Link></li>
         </ul>
       </nav>
     )
