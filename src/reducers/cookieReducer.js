@@ -8,6 +8,7 @@ export default function(state = initialState, action) {
   switch(action) {
     case SET_CSRF_COOKIE:
       const newCookie = action.csrfCookie;
+      console.log(`cookieReducer... ${newCookie}`);
       return {
         ...state,
         csrf: newCookie

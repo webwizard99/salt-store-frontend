@@ -4,7 +4,9 @@ import './ProfileForm.css';
 import { connect } from 'react-redux';
 
 class ProfileForm extends React.Component {
+  
   render() {
+    console.log(`ProfileForm... ${this.props.csrfToken}`)
     return (
       <div className="ProfileForm">
         <form action="http://salt-store-backend.herokuapp.com/user/signup" method="post">
