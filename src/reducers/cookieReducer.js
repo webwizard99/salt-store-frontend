@@ -7,7 +7,11 @@ const initialState = {
 export default function(state = initialState, action) {
   switch(action) {
     case SET_CSRF_COOKIE:
-      state.csrf = action.csrfCookie;
+      return {
+        ...state,
+        csrf = action.csrfCookie
+      }
+      
     default:
       return state;
   }
