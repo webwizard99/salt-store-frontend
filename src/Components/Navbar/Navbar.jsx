@@ -14,9 +14,9 @@ class Navbar extends React.Component {
           </div>
         </Link>
         <ul className="nav-options">
-          <li><Link to="/frontend/store"><span>Store</span></Link></li>
-          <li><Link to="/frontend/about"><span>About</span></Link></li>
-          <li><Link to="/frontend/profile"><span>O-&lt</span></Link></li>
+          <li><Link to="/store"><span>Store</span></Link></li>
+          <li><Link to="/about"><span>About</span></Link></li>
+          <li><Link to="/profile"><span>Profile</span></Link></li>
         </ul>
       </nav>
     )

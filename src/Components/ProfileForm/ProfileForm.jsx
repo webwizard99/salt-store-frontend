@@ -1,12 +1,9 @@
 import React from 'react';
 import './ProfileForm.css';
 
-import { connect } from 'react-redux';
-
 class ProfileForm extends React.Component {
   
   render() {
-    console.log(`ProfileForm... ${this.props.csrfToken}`)
     return (
       <div className="ProfileForm">
         <form action="http://salt-store-backend.herokuapp.com/user/signup" method="post">
@@ -18,7 +15,6 @@ class ProfileForm extends React.Component {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password" className="form-control" />
           </div>
-          <input type="hidden" name="_csrf" value={this.props.csrfToken} />
           <button type="submit" className="btn btn-primary">Sign Up</button>
         </form>
       </div>
@@ -26,10 +22,5 @@ class ProfileForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    csrfToken: state.cookies.csrf
-  }
-}
 
-export default connect(mapStateToProps)(ProfileForm);
+export default ProfileForm;
