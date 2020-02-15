@@ -6,7 +6,7 @@ class ProfileForm extends React.Component {
   render() {
     return (
       <div className="ProfileForm">
-        <form action="http://salt-store-backend.herokuapp.com/user/signup" method="post">
+        <form action="https://salt-store-backend.herokuapp.com/user/signup" method="post">
           <div className="form-group">
             <label htmlFor="email">E-Mail</label>
             <input type="text" id="email" name="email" className="form-control" />

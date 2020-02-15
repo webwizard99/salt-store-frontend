@@ -7,7 +7,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <nav className="Navbar">
-        <Link to="/frontend" className="logo-group">
+        <Link to="/" className="logo-group">
           <div className="logo-group">
             <span className="logo">&</span>
             <span className="tagline">find your salt</span>
