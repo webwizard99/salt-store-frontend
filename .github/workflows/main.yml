@@ -9,6 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - uses: actions/checkout@v2
       with:
         repository: webwizard99/salt-store-backend
         token : 4e01d9eb906aa380869262d1556f6ed8a5099fd7 
