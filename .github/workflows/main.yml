@@ -19,3 +19,4 @@ jobs:
       with:
         repository: webwizard99/salt-store-backend.git
         repo-token: 4e01d9eb906aa380869262d1556f6ed8a5099fd7
+        path: backend
