@@ -9,13 +9,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/checkout@v2
-      with:
-        repository: webwizard99/salt-store-backend.git
-        repo-token: 4e01d9eb906aa380869262d1556f6ed8a5099fd7
     - name: Run a one-line script
       run: echo Hello, world!
     - name: install dependencies
       run: npm install
     - name: create build file
       run: npm run build
+    - uses: actions/checkout@v2
+      with:
+        repository: webwizard99/salt-store-backend.git
+        repo-token: 4e01d9eb906aa380869262d1556f6ed8a5099fd7
