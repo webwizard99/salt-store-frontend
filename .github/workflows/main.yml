@@ -8,6 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: install dependencies
       run: npm install
     - name: create build file
@@ -40,4 +41,4 @@ jobs:
         git commit -m "Update build folder"
     - name: push changes to backend repo
       run:
-        git push origin master
+        git push backend master
