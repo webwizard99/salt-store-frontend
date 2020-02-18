@@ -25,7 +25,7 @@ jobs:
         ls
     - name: delete existing build folder in backend repo
       run:
-        rm backend/public/build
+        rm -r backend/public/build
     - name: move build folder to backend repo
       run:
         mv build backend/public
