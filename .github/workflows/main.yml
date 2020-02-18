@@ -29,8 +29,11 @@ jobs:
     - name: move build folder to backend repo
       run:
         mv build backend/public
-    - name: commit changes to backend repo
+    - name: add changes to backend repo
       run:
         git add .
+    - name: commit changes to backend repo
+      run:
         git commit -m "Update build folder"
+    - name: push changes to backend repo
         git push origin master
