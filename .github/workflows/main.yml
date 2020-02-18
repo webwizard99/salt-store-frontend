@@ -15,7 +15,7 @@ jobs:
       run: npm run build
     - uses: actions/checkout@v2
       with:
-        repository: webwizard99/salt-store-backend.git
+        repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         path: backend
     - name: enumerate file structure
