@@ -31,24 +31,8 @@ jobs:
       run: |
         cd backend
         ls
+        git config --global user.name "webwizard99"
+        git config --global user.name "webwizard99"
         git add .
         git commit -m "Add backend changes."
-        git push origin master
-    - name: enumerate file structure
-      run:
-        ls
-    - name: add changes to backend repo
-      run:
-        git add .
-    - name: configure git email
-      run:
-        git config --global user.email "michael_bragg99@hotmail.com"
-    - name: configure git user name
-      run:
-        git config --global user.name "webwizard99"
-    - name: commit changes to backend repo
-      run:
-        git commit -m "Update build folder"
-    - name: push changes to backend repo
-      run:
         git push origin master
