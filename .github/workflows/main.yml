@@ -33,11 +33,11 @@ jobs:
         git config --global user.name ${{ secrets.USER_NAME }}
         git config --global user.email ${{ secrets.USER_EMAIL }}
         git config --global user.password ${{ secrets.GITHUB_TOKEN }}
-        git remote set-url backend ${REMOTE}
+        git remote set-url origin ${REMOTE}
         git status
         git pull
         git checkout master
         git add .
         git commit -m "Add backend changes."
         git status
-        git push backend master
+        git push ${REMOTE} master
