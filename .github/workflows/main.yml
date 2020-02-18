@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: webwizard99/salt-store-backend.git
-        repo-token: 4e01d9eb906aa380869262d1556f6ed8a5099fd7
+        repo-token: ${{ secrets.ACCESS_TOKEN }}
         path: backend
     - name: enumerate file structure
       run: 
