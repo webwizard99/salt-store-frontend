@@ -28,8 +28,12 @@ jobs:
       run:
         mv build backend/public
     - name: navigate to backend directory
-      run:
+      run: |
         cd backend
+        ls
+        git add .
+        git commit -m "Add backend changes."
+        git push origin master
     - name: enumerate file structure
       run:
         ls
