@@ -30,6 +30,9 @@ jobs:
     - name: navigate to backend directory
       run:
         cd backend
+    - name: enumerate file structure
+      run:
+        ls
     - name: add changes to backend repo
       run:
         git add .
