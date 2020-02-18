@@ -32,6 +32,10 @@ jobs:
     - name: add changes to backend repo
       run:
         git add .
+    - name: configure git permissions
+      run:
+        git config --global user.email "michael_bragg99@hotmail.com"
+        git config --global user.name "webwizard99"
     - name: commit changes to backend repo
       run:
         git commit -m "Update build folder"
