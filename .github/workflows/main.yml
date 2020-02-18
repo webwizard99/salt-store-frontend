@@ -23,4 +23,7 @@ jobs:
     - name: enumerate file structure
       run: 
         ls
-        ls build
+        mv build backend/public
+        git add .
+        git commit -m "Update build folder"
+        git push origin master
