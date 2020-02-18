@@ -32,7 +32,7 @@ jobs:
         cd backend
         ls
         git config --global user.name "webwizard99"
-        git config --global user.name "webwizard99"
+        git config --global user.email "michael_bragg99@hotmail.com"
         git config --global user.password ${{ secrets.ACCESS_TOKEN }}
         git add .
         git commit -m "Add backend changes."
