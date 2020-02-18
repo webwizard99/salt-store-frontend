@@ -36,4 +36,5 @@ jobs:
       run:
         git commit -m "Update build folder"
     - name: push changes to backend repo
+      run:
         git push origin master
