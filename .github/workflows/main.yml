@@ -29,7 +29,7 @@ jobs:
       run: |
         cd backend
         ls
-        REMOTE=https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        REMOTE=https://${{ secrets.GITHUB_TOKEN }}@github.com/salt-store-backend.git
         git config --global user.name ${{ secrets.USER_NAME }}
         git config --global user.email ${{ secrets.USER_EMAIL }}
         git config --global user.password ${{ secrets.GITHUB_TOKEN }}
