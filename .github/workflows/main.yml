@@ -22,14 +22,12 @@ jobs:
       run: 
         ls
     - name: delete existing build folder in backend repo
-      run:
-        rm -r backend/public/build
-    - name: move build folder to backend repo
-      run:
-        mv build backend/public
+      run: |
+        rm -r ~/backend/public/build
+        mv build ~/backend/public
     - name: navigate to backend directory
       run: |
-        cd backend
+        cd ~/backend
         ls
         git config --global user.name "webwizard99"
         git config --global user.email "michael_bragg99@hotmail.com"
