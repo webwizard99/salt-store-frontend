@@ -16,7 +16,7 @@ jobs:
     - uses: actions/checkout@v2
       with:
         repository: webwizard99/salt-store-backend.git
-        repo-token: ${{ secrets.ACCESS_TOKEN }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
         path: ~/backend
     - name: enumerate file structure
       run: 
@@ -33,7 +33,7 @@ jobs:
         ls
         git config --global user.name "webwizard99"
         git config --global user.email "michael_bragg99@hotmail.com"
-        git config --global user.password ${{ secrets.ACCESS_TOKEN }}
+        git config --global user.password ${{ secrets.GITHUB_TOKEN }}
         git add .
         git commit -m "Add backend changes."
         git push origin master
