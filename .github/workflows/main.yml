@@ -17,21 +17,23 @@ jobs:
       with:
         repository: webwizard99/salt-store-backend.git
         repo-token: ${{ secrets.GITHUB_TOKEN }}
-        path: ~/backend
+        path: backend
     - name: enumerate file structure
       run: 
         ls
     - name: delete existing build folder in backend repo
       run: |
-        rm -r ~/backend/public/build
-        mv build ~/backend/public
+        rm -r backend/public/build
+        mv build backend/public
     - name: navigate to backend directory
       run: |
-        cd ~/backend
+        cd backend
         ls
-        git config --global user.name "webwizard99"
-        git config --global user.email "michael_bragg99@hotmail.com"
+        REMOTE=https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git config --global user.name ${{ secrets.USER_NAME }}
+        git config --global user.email ${{ secrets.USER_PASSWORD }}
         git config --global user.password ${{ secrets.GITHUB_TOKEN }}
         git add .
         git commit -m "Add backend changes."
-        git push origin master
+        git status
+        git push ${ REMOTE } master
