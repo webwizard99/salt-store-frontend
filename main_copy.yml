@@ -1,0 +1,43 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: install dependencies
+      run: npm install
+    - name: create build file
+      run: npm run build
+    - uses: actions/checkout@v2
+      with:
+        repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        path: backend
+    - name: enumerate file structure
+      run: 
+        ls
+    - name: delete existing build folder in backend repo
+      run: |
+        rm -r backend/public/build
+        mv build backend/public
+    - name: navigate to backend directory
+      run: |
+        cd backend
+        ls
+        REMOTE=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.BACKEND_REPO }}
+        git config --global user.name ${{ secrets.USER_NAME }}
+        git config --global user.email ${{ secrets.USER_EMAIL }}
+        git config --global user.password ${{ secrets.GITHUB_TOKEN }}
+        git remote set-url origin ${REMOTE}
+        git status
+        git pull
+        git checkout master
+        git add .
+        git commit -m "Add backend changes."
+        git status
+        git push ${REMOTE} master
