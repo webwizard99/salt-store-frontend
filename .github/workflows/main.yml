@@ -1,44 +1,27 @@
-name: CI
+name: Remote Dispatch Action Initiator
 
-on: [push]
+on:
+  push:
+  schedule:
+    - cron: '0 12 * * *'
+  repository_dispatch:
 
 jobs:
-  build:
-
+  ping-pong:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: install dependencies
-      run: npm install
-    - name: create build file
-      run: npm run build
-    - uses: actions/checkout@v2
-      with:
-        repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        path: backend
-    - name: enumerate file structure
-      run: 
-        ls
-    - name: delete existing build folder in backend repo
-      run: |
-        rm -r backend/public/build
-        mv build backend/public
-    - name: navigate to backend directory
-      run: |
-        cd backend
-        ls
-        REMOTE=https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ secrets.BACKEND_REPO }}
-        echo ${REMOTE}
-        git config --global user.name ${{ secrets.USER_NAME }}
-        git config --global user.email ${{ secrets.USER_EMAIL }}
-        git config --global user.password ${{ secrets.GITHUB_TOKEN }}
-        git remote set-url origin ${REMOTE}
-        git status
-        git pull
-        git checkout master
-        git add .
-        git commit -m "Add backend changes."
-        git status
-        git push ${REMOTE} master
+      - name: PING - Dispatch initiating repository event
+        if: github.event.action != 'pong'
+        run: |
+          curl -X POST https://api.github.com/repos/marcnuri-demo/actions-remote-dispatch-b/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.GITHUB_TOKEN }} \
+          --data '{"event_type": "ping", "client_payload": { "repository": "${{ secrets.BACKEND_REPO }}" }}'
+      - name: ACK - Acknowledge pong from remote repository
+        if: github.event.action == 'pong'
+        run: |
+          echo "PONG received from '${{ github.event.client_payload.repository }}'" && \
+          curl -X POST https://api.github.com/repos/marcnuri-demo/actions-remote-dispatch-b/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.GITHUB_TOKEN }} \
+          --data '{"event_type": "ack", "client_payload": { "repository": "${{ secrets.BACKEND_REPO }}" }}'
