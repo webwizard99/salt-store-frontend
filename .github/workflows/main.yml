@@ -15,6 +15,6 @@ jobs:
         uses: peter-evans/repository-dispatch@v1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
+          repository: webwizard99/salt-store-backend
           event-type: build_dispatch
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "message": "build dispatch activated"}'
