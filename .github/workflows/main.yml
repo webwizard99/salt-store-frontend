@@ -1,7 +1,6 @@
 name: Build Dispatcher
 
-on:
-  [push]
+on: [push]
 
 jobs:
   dispatch:
