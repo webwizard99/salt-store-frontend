@@ -14,8 +14,10 @@ jobs:
           BUILD=build
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
+        env: 
+            build: ${{ github.repository }}/build
         with:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
           event-type: build_dispatch
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "message": "build dispatch sent", "build": "${BUILD}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "message": "build dispatch sent", "build": "${{ env.build }}"}'
