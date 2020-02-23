@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make build file
-      - run: |
+        run: |
           npm install
           npm run build
       - name: Repository Dispatch
