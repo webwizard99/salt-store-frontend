@@ -20,4 +20,4 @@ jobs:
           token: ${{ secrets.ACCESS_TOKEN }}
           repository: ${{ secrets.USER_NAME }}/${{ secrets.BACKEND_REPO }}
           event-type: build_dispatch
-          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "message": "build dispatch sent", "build": "${{ env.build }}"}'
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "build": "${{ env.build }}"}'
