@@ -11,6 +11,7 @@ jobs:
         run: |
           npm install
           npm run build
+          echo build installed
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         env: 
