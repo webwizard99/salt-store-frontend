@@ -11,7 +11,6 @@ jobs:
         run: |
           npm install
           npm run build
-          BUILD=build
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         env: 
