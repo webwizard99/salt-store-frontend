@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: log message
-        run: echo build dispatcher reached
+        run: echo build dispatcher
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1
         with:
