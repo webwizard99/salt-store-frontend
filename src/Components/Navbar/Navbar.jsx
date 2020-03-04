@@ -16,7 +16,7 @@ class Navbar extends React.Component {
         <ul className="nav-options">
           <li><Link to="/store"><span>Store</span></Link></li>
           <li><Link to="/about"><span>About</span></Link></li>
-          <li><Link to="/profile"><span>👤</span></Link></li>
+          <li><Link to="/profile"><span>🎅</span></Link></li>
         </ul>
       </nav>
     )
